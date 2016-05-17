@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jsondiffpatch.js"></script>
+    <script type="text/javascript" src="js/jsondiffpatch-formatters.js"></script>
+    <script type="text/javascript" src="js/displaypanels.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/myaddedcss.css" type="text/css" />
+    <link rel="stylesheet" href="css/html.css" type="text/css" />
+    <link rel="stylesheet" href="css/annotated.css" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.getJSON("settings/configscombined.json", function(settings) {
+                displayPanels(settings);
+                applyDiffs(settings);
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/jquery.searchable.js"></script>
+</head>
+<body>
+
+    <div class="page-header">
+        <h1 class="text-center">Diffs [CurrentDev precerts]</h1>
+    </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="generatePanels">
+
+            </div><!--div id panels-->
+        </div><!--div generatePanels-->
+        <div class="col-md-4">
+            <input type="search" id="search" value="" class="form-control" placeholder="Search..." onchange="searchthis(this)">
+        </div>
+    </div><!--div row panel section-->
+</div><!--div class container-->
+    <script type="text/javascript" src="js/animatepanels.js"></script>
+</body>
+
+</html>

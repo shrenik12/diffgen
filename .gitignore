@@ -1,0 +1,12 @@
+Workspace/*
+node_modules/*
+.idea/.name
+.idea/compiler.xml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/config-creator.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/copyright/profiles_settings.xml
+*.xml
+config-creator.iml

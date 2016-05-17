@@ -1,4 +1,4 @@
-Workspace/*
+dataset/*
 node_modules/*
 .idea/.name
 .idea/compiler.xml

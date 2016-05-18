@@ -22,24 +22,37 @@
 </head>
 <body>
 
-    <div class="page-header">
-        <h1 class="text-center">Diffs [CurrentDev precerts]</h1>
-    </div>
+<!--PAGE HEADER-->
+<div class="page-header">
+    <h1 class="text-center">Diffs [CurrentDev precerts]</h1>
+</div>
 
 
+<!--SEARCH BAR-->
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-offset-8">
+            <input type="search" id="search" value="" class="form-control" placeholder="Search..." onchange="searchthis(this)">
+        </div>
+     </div>
+</div>
+
+<!--Result TABLE -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-6">
             <div id="generatePanels">
 
             </div><!--div id panels-->
         </div><!--div generatePanels-->
-        <div class="col-md-4">
-            <input type="search" id="search" value="" class="form-control" placeholder="Search..." onchange="searchthis(this)">
+        <div class="col-md-5">
         </div>
     </div><!--div row panel section-->
 </div><!--div class container-->
-    <script type="text/javascript" src="js/animatepanels.js"></script>
+
+<script type="text/javascript" src="js/animatepanels.js"></script>
 </body>
 
 </html>

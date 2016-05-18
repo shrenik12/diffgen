@@ -26,7 +26,7 @@ function displayPanels(settings){
             var version = versions.replace(/\./g, '');
             var strGlyph = "glyphicon-remove";
             var strLabel = "label-danger";
-            if (versions != "CurrentDevVersion"){                             // for all the versions except CDV
+            if (versions != "CurrentDevVersion" && versions != "iplayer"){                             // for all the versions except CDV
 
                 var delta = jsondiffpatch.diff(value["CurrentDevVersion"], confs);
                 if (delta == undefined){ // define success or failure

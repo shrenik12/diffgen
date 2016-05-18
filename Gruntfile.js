@@ -3,27 +3,38 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         folder_list: {
-            options: {
-                files: true,
-                folder: true
-            },
-            files: {
-                src: ['**'],
-                dest: 'public/settings/folders.json',
-                cwd: 'dataset/'
+            custom_folders_options: {
+                options: {
+                    files: true,
+                    folder: true
+                },
+                files: [
+                    {
+                        src: ['**'],
+                        dest: 'public/settings/talfiles.json',
+                        cwd: 'dataset/tal-device-config/webapp/htdocs/deviceconfig/'
+                    },
+                    {
+                        src: ['**'],
+                        dest: 'public/settings/iplayerfiles.json',
+                        cwd: 'dataset/tap-config/webapp/htdocs/config/'
+                    }
+                ]
             }
         }
     });
 
+    grunt.loadNpmTasks('grunt-folder-list');
 
     grunt.loadNpmTasks('grunt-folder-list');
+
     grunt.registerTask('getfolders', 'folder_list');
 
-
-    grunt.registerTask('generatefolders', 'generates the array of required folders', function () {
-        var cwd = "dataset/";
-        var folderPaths = "public/settings/folders.json";
-        var objfolderPaths = grunt.file.readJSON(folderPaths);
+    grunt.registerTask('generatefolders', 'generates the combined.json without iplayer', function () {
+        var cwd = "dataset/tal-device-config/webapp/htdocs/deviceconfig/";
+        var icwd = "dataset/tap-config/webapp/htdocs/config/";
+        var objiplayerfolderPaths = grunt.file.readJSON("public/settings/iplayerfiles.json");
+        var objfolderPaths = grunt.file.readJSON("public/settings/talfiles.json");
 
 
         // get the relevant folders for computing.
@@ -51,7 +62,7 @@ module.exports = function(grunt) {
 
         arrCurrentdevFiles.forEach(function (brandmodel) {  // for each brand and model in current dev version find
             var objDeviceJson = {};
-            arrFolderLocations.forEach(function (talversions) {
+            arrFolderLocations.forEach(function (talversions) { // for each TAL version
 
                 objfolderPaths.forEach(function (entry) {
                     if (entry["filetype"] == "json" && entry["type"] == "file" && entry["filename"] != "configschema.json" && entry["filename"] == brandmodel && entry["location"].indexOf(talversions) > -1 && entry["location"].indexOf("precert") > -1) {
@@ -60,11 +71,20 @@ module.exports = function(grunt) {
                 });
 
             });
+
+            objiplayerfolderPaths.forEach(function (entry) {
+                if (entry["filetype"] == "json" && entry["type"] == "file" && entry["filename"] != "devices-precert.json" && entry["filename"] == brandmodel && entry["location"].indexOf("precert") > -1) {
+                    objDeviceJson["iplayer"] = grunt.file.readJSON(icwd + entry["location"]);
+                }
+            });
+
             objCombinedJson[brandmodel] = objDeviceJson;
         });
         console.log(objCombinedJson);
         grunt.file.write("public/settings/configscombined.json", JSON.stringify(objCombinedJson, null, '\t'));
 
     });
+
+
 
 }

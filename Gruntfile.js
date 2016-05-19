@@ -26,10 +26,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-folder-list');
 
-    grunt.loadNpmTasks('grunt-folder-list');
-
-    grunt.registerTask('getfolders', 'folder_list');
-
     grunt.registerTask('generatefolders', 'generates the combined.json without iplayer', function () {
         var cwd = "dataset/tal-device-config/webapp/htdocs/deviceconfig/";
         var icwd = "dataset/tap-config/webapp/htdocs/config/";
@@ -55,7 +51,6 @@ module.exports = function(grunt) {
             }
 
         });
-        console.log(arrCurrentdevFiles);
 
         // write stuff in jsons
         var objCombinedJson = {};
@@ -80,11 +75,10 @@ module.exports = function(grunt) {
 
             objCombinedJson[brandmodel] = objDeviceJson;
         });
-        console.log(objCombinedJson);
+        console.log("Combined and now writing the file");
         grunt.file.write("public/settings/configscombined.json", JSON.stringify(objCombinedJson, null, '\t'));
 
     });
 
-
-
+    grunt.registerTask('getitdone', ['folder_list','generatefolders']);
 }

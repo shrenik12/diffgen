@@ -33,7 +33,7 @@ function displayPanels(settings){
                     strGlyph = "glyphicon-ok";
                     strLabel = "label-success";
                 }
-                strEachBuildPanels += '<li role="presentation"><a href="#pill-'+key+'-'+version+'" data-toggle="tab">'+versions+'<span class="label '+strLabel+'"><span class="glyphicon '+strGlyph+'"></span></span></a></li>';
+                strEachBuildPanels += '<li role="presentation"><a href="#pill-'+key+'-'+version+'" data-toggle="tab">'+versions+'   <span class="label '+strLabel+'"><span class="glyphicon '+strGlyph+'"></span></span></a></li>';
 
             }
         });

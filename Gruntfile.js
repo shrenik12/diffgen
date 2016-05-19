@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                 });
 
             });
-
+            // sticking the iplayer  configs for that device.
             objiplayerfolderPaths.forEach(function (entry) {
                 if (entry["filetype"] == "json" && entry["type"] == "file" && entry["filename"] != "devices-precert.json" && entry["filename"] == brandmodel && entry["location"].indexOf("precert") > -1) {
                     objDeviceJson["iplayer"] = grunt.file.readJSON(icwd + entry["location"]);

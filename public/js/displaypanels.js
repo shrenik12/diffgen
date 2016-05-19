@@ -11,7 +11,7 @@ function displayPanels(settings){
     });
 
     var strBuildPanels = '';
-    strBuildPanels += '<table class="table" id="table"><thead><tr><th>Devices</th></tr></thead><tbody>';
+    strBuildPanels += '<table class="table" id="table"><thead><tr><th>Tal Configs</th><th>Tap Config</th></tr></thead><tbody>';
 
 
     var strGlyphicon = "glyphicon-ok-circle";
@@ -49,7 +49,10 @@ function displayPanels(settings){
         });
         strEachBuildPanels += '<div class="tab-pane" id="pillclear-'+key+'"></div>';
 
-        strEachBuildPanels += '</div></div></div></td></tr>';
+        strEachBuildPanels += '</div></div></div></td>';
+        strEachBuildPanels += '<td><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title"> < Tap config </h3>';
+        strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up"></i></span></div><div class="panel-body"> In the iplayer body </div></div>';
+        strEachBuildPanels += '</td></tr>';
 
         strBuildPanels += strEachBuildPanels;
 

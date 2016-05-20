@@ -50,9 +50,10 @@ function displayPanels(settings){
         strEachBuildPanels += '<div class="tab-pane" id="pillclear-'+key+'"></div>';
 
         strEachBuildPanels += '</div></div></div></td>';
-        strEachBuildPanels += '<td><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title"> < Tap config </h3>';
-        strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up"></i></span></div><div class="panel-body"> In the iplayer body </div></div>';
-        strEachBuildPanels += '</td></tr>';
+        strEachBuildPanels += '<td><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
+        strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up" data-toggle="collapse"></i></span></div>';
+        strEachBuildPanels += '<div style="display:none" class="panel-body"><div id="pilliplayer-'+key+'"><textarea class ="form-control" disabled rows="15">'+JSON.stringify(value["iplayer"],null,4)+'</textarea></textarea></div></div>';
+        strEachBuildPanels += '</div></div></td></tr>';
 
         strBuildPanels += strEachBuildPanels;
 

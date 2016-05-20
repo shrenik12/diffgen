@@ -32,3 +32,12 @@ function searchthis(e){
         $("tr").removeAttr("style");
     }
 }
+
+function tapconfig(e){
+    var strtapconfig = $(e).val();
+    if(strtapconfig != ""){
+        $("td").attr("style", function(index){return "display:none;";});
+        $('td[id*='+strtapconfig+']').each(function (i, el) { $(el).removeAttr("style");});
+    }
+    else{ $("td").removeAttr("style");}
+}

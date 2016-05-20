@@ -17,7 +17,7 @@ function displayPanels(settings){
     var strGlyphicon = "glyphicon-ok-circle";
     $.each(objAllConfigs, function(key, value){     // loop through each device in the json
         var strEachBuildPanels = '';
-        strEachBuildPanels += '<tr id="devicepanel-'+key+'"><td ><div class="panel panel-primary"><div class="panel-heading">';
+        strEachBuildPanels += '<tr id="devicepanel-'+key+'"><td width="65%"><div class="panel panel-primary"><div class="panel-heading">';
         strEachBuildPanels += '<h3 class="panel-title"><span class="glyphicon '+strGlyphicon+'"></span>   '+key+'</h3>';
         strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up"></i></span></div>';
         strEachBuildPanels += '<div class="panel-body"><ul class="nav nav-pills">';
@@ -33,7 +33,7 @@ function displayPanels(settings){
                     strGlyph = "glyphicon-ok";
                     strLabel = "label-success";
                 }
-                strEachBuildPanels += '<li role="presentation"><a href="#pill-'+key+'-'+version+'" data-toggle="tab">'+versions+'   <span class="label '+strLabel+'"><span class="glyphicon '+strGlyph+'"></span></span></a></li>';
+                strEachBuildPanels += '<li role="presentation" devicename = "'+key+'"><a href="#pill-'+key+'-'+version+'" data-toggle="tab">'+versions+'   <span class="label '+strLabel+'"><span class="glyphicon '+strGlyph+'"></span></span></a></li>';
 
             }
         });
@@ -50,9 +50,9 @@ function displayPanels(settings){
         strEachBuildPanels += '<div class="tab-pane" id="pillclear-'+key+'"></div>';
 
         strEachBuildPanels += '</div></div></div></td>';
-        strEachBuildPanels += '<td><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
+        strEachBuildPanels += '<td width="35%"><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
         strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up" data-toggle="collapse"></i></span></div>';
-        strEachBuildPanels += '<div style="display:none" class="panel-body"><div id="pilliplayer-'+key+'"><textarea class ="form-control" disabled rows="15">'+JSON.stringify(value["iplayer"],null,4)+'</textarea></textarea></div></div>';
+        strEachBuildPanels += '<div style="display:none" class="panel-body"><div id="pilliplayer-'+key+'"><textarea class ="form-control" disabled rows="30">'+JSON.stringify(value["iplayer"],null,4)+'</textarea></textarea></div></div>';
         strEachBuildPanels += '</div></div></td></tr>';
 
         strBuildPanels += strEachBuildPanels;

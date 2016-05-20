@@ -1,13 +1,6 @@
 dataset/*
 node_modules/*
 public/settings/*
-.idea/.name
-.idea/compiler.xml
-.idea/misc.xml
-.idea/workspace.xml
-.idea/config-creator.iml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/copyright/profiles_settings.xml
+.idea/*
 *.xml
 config-creator.iml

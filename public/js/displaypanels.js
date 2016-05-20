@@ -17,7 +17,7 @@ function displayPanels(settings){
     var strGlyphicon = "glyphicon-ok-circle";
     $.each(objAllConfigs, function(key, value){     // loop through each device in the json
         var strEachBuildPanels = '';
-        strEachBuildPanels += '<tr id="devicepanel-'+key+'"><td><div class="panel panel-primary"><div class="panel-heading">';
+        strEachBuildPanels += '<tr id="devicepanel-'+key+'"><td ><div class="panel panel-primary"><div class="panel-heading">';
         strEachBuildPanels += '<h3 class="panel-title"><span class="glyphicon '+strGlyphicon+'"></span>   '+key+'</h3>';
         strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up"></i></span></div>';
         strEachBuildPanels += '<div class="panel-body"><ul class="nav nav-pills">';

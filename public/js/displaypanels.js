@@ -17,7 +17,7 @@ function displayPanels(settings){
     var strGlyphicon = "glyphicon-ok-circle";
     $.each(objAllConfigs, function(key, value){     // loop through each device in the json
         var strEachBuildPanels = '';
-        strEachBuildPanels += '<tr id="devicepanel-'+key+'"><td style="width: 60%"><div class="panel panel-primary"><div class="panel-heading">';
+        strEachBuildPanels += '<tr id="devicepanel-'+key+'"><td style="width: 65%"><div class="panel panel-primary"><div class="panel-heading">';
         strEachBuildPanels += '<h3 class="panel-title"><span class="glyphicon '+strGlyphicon+'"></span>   '+key+'</h3>';
         strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up"></i></span></div>';
         strEachBuildPanels += '<div class="panel-body"><ul class="nav nav-pills">';
@@ -50,7 +50,7 @@ function displayPanels(settings){
         strEachBuildPanels += '<div class="tab-pane" id="pillclear-'+key+'"></div>';
 
         strEachBuildPanels += '</div></div></div></td>';
-        strEachBuildPanels += '<td id="tap_config-'+key+'"><div class="panel panel-primary" id="pilliplayer-'+key+'" style="width: 40%; display:none" ><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
+        strEachBuildPanels += '<td id="tap_config-'+key+'"><div class="panel panel-primary" id="pilliplayer-'+key+'" style="display:none" ><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
         strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up" data-toggle="collapse"></i></span></div>';
 
         if( value["iplayer"] == undefined )  {

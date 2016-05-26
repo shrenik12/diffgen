@@ -33,11 +33,11 @@ function displayPanels(settings){
                     strGlyph = "glyphicon-ok";
                     strLabel = "label-success";
                 }
-                strEachBuildPanels += '<li role="presentation" devicename="'+key+'" onclick="tapconfig(this)"><a href="#pill-'+key+'-'+version+'" data-toggle="tab">'+versions+'   <span class="label '+strLabel+'"><span class="glyphicon '+strGlyph+'"></span></span></a></li>';
+                strEachBuildPanels += '<li role="presentation" devicename="pilliplayer-'+key+'" onclick="tapconfig(this)"><a href="#pill-'+key+'-'+version+'"  data-toggle="tab">'+versions+'   <span class="label '+strLabel+'"><span class="glyphicon '+strGlyph+'"></span></span></a></li>';
 
             }
         });
-        strEachBuildPanels += '<li role="presentation"><a href="#pillclear-'+key+'" data-toggle="tab">Clear</a></li>'; // adding a clear pill to clear the contents of the jumbotron.
+        strEachBuildPanels += '<li role="presentation" devicename="pilliplayer-'+key+'" onclick="cleartapconfig(this)"><a href="#pillclear-'+key+'"  data-toggle="tab">Clear</a></li>'; // adding a clear pill to clear the contents of the jumbotron.
         strEachBuildPanels += '</ul><div class="tab-content">';
 
         $.each(value, function(versions, confs){ // loop through each version in the device BUILDING the diff Panels
@@ -50,9 +50,17 @@ function displayPanels(settings){
         strEachBuildPanels += '<div class="tab-pane" id="pillclear-'+key+'"></div>';
 
         strEachBuildPanels += '</div></div></div></td>';
-        strEachBuildPanels += '<td style="width: 40%; display:none" id="tap_config - '+key+'"><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
+        strEachBuildPanels += '<td id="tap_config-'+key+'"><div class="panel panel-primary" id="pilliplayer-'+key+'" style="width: 40%; display:none" ><div class="panel-heading"><h3 class="panel-title"> Tap config </h3>';
         strEachBuildPanels += '<span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-up" data-toggle="collapse"></i></span></div>';
-        strEachBuildPanels += '<div class="panel-body"><div id="pilliplayer-'+key+'"><textarea class ="form-control" disabled rows="15">'+JSON.stringify(value["iplayer"],null,4)+'</textarea></textarea></div></div></div></div>';
+
+        if( value["iplayer"] == undefined )  {
+
+            strEachBuildPanels += '<div class="panel-body"><textarea class ="form-control" disabled rows="30">No iPlayer precert config for this device.</textarea></div></div></div>';
+        }
+        else{
+            strEachBuildPanels += '<div class="panel-body"><textarea class ="form-control" disabled rows="30">'+JSON.stringify(value["iplayer"],null,4)+'</textarea></div></div></div>';
+        }
+
         strEachBuildPanels += '</td></tr>';
 
         strBuildPanels += strEachBuildPanels;

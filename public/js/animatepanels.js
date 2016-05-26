@@ -17,7 +17,6 @@ $(document).on('click', '.panel-heading span.clickable', function(e){
 function searchthis(e){
 
     var strSearchstring = $(e).val();
-    console.log(strSearchstring);
 
     if ( strSearchstring != ""){
         $("tr").attr("style", function(index) {
@@ -34,10 +33,11 @@ function searchthis(e){
 }
 
 function tapconfig(e){
-    var strtapconfig = $(e).val();
-    if(strtapconfig != ""){
-        $("td").attr("style", function(index){return "display:none;";});
-        $('td[id*='+strtapconfig+']').each(function (i, el) { $(el).removeAttr("style");});
-    }
-    else{ $("td").removeAttr("style");}
+    var strtapconfig = $(e).attr("devicename");
+    $('td [id*="'+strtapconfig+'"]').removeAttr("style");
+}
+
+function cleartapconfig(e){
+    var strtapconfig = $(e).attr("devicename");
+    $('td [id*="'+strtapconfig+'"]').attr("style", function(index){return "display:none;";});
 }
